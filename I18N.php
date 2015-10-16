@@ -47,12 +47,14 @@ class I18N extends \yii\i18n\I18N {
 
             $translations = ! file_exists($fileSrc) ? [] : require( $fileSrc );
             $translations = is_array($translations) ? $translations : [] ;
+
             if( !isset($translations[$message]) ){
+                $message = str_replace('"', '\\"', $message);
                 $translations[$message] = $message;
                 $php_file = fopen($fileSrc, 'w');
-                fwrite($php_file, "<? \n // ".htmlspecialchars("'", ENT_QUOTES)." => ' (Symbol \"'\") \nreturn [ \n");
+                fwrite($php_file, "<? \nreturn [ \n");
                 foreach($translations as $k => $v){
-                    fwrite($php_file, "     '$k'=>'$v', \n");
+                    fwrite($php_file, '     "'.$k.'"=>"'.$v.'",'."\n");
                 }
                 fwrite($php_file, "];");
                 fclose($php_file);
