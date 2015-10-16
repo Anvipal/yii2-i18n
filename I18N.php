@@ -30,7 +30,10 @@ class I18N extends \yii\i18n\I18N {
     }
 
     public function checkTranslate($category, $message, $language){
-        $messageSource = $this->translations[($category=='app'?'app*':$category)];
+        // TODO: app -> app*
+        $messageSource = isset($this->translations[$category]) ? $this->translations[$category] : null ;
+
+        if($messageSource == null) return false;
 
         $basePath = is_array($messageSource)?$messageSource['basePath']:$messageSource->basePath;
         $sourceLanguage = is_array($messageSource)?(isset($messageSource['sourceLanguage'])?$messageSource['sourceLanguage']:null):$messageSource->sourceLanguage;
