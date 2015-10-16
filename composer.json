@@ -9,7 +9,6 @@
   "homepage": "https://github.com/Yarisrespect/yii2-i18n.git",
   "type": "yii2-extension",
   "license": "BSD-3-Clause",
-  "prefer-stable": true,
   "authors": [
     {
       "name": "Yaroslav Goisa",
