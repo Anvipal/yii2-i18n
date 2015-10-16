@@ -62,15 +62,23 @@ class I18N extends \yii\i18n\I18N {
                 }
             }
 
+
+            $message = str_replace('"', '\\"', $message);
+
             if( !file_exists($fileSrc) ){
                 file_put_contents($fileSrc, "<? \nreturn [\n];");
             }
 
             $translations = file($fileSrc, FILE_SKIP_EMPTY_LINES);
+            foreach($translations as $line){
+                if( strpos($line, $message) !== false){
+                    return;
+                }
+            }
+
             $size = count($translations);
-            if( strpos("];", $translations[$size-1]) !== false){
-                $message = str_replace('"', '\\"', $message);
-                $translations[$size-1] = '     "'.$message.'"=>"'.$message.'",'."\n";
+            if( strpos($translations[$size-1], "];") !== false){
+                $translations[$size-1] = '     "'.$message.'" => "'.$message.'",'."\n";
                 $translations[$size] = '];';
                 file_put_contents( $fileSrc, $translations );
             } else {
