@@ -71,7 +71,7 @@ class I18N extends \yii\i18n\I18N {
 
             $translations = file($fileSrc, FILE_SKIP_EMPTY_LINES);
             foreach($translations as $line){
-                if( strpos($line, $message) !== false){
+                if( strpos($line, $message.'"') !== false){
                     return;
                 }
             }
