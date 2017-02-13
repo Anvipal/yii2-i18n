@@ -1,12 +1,12 @@
 {
-  "name": "yarisrespect/yii2-i18n",
+  "name": "anvipal/yii2-i18n",
   "description": "Auto generation of language files for Yii 2 framework",
   "keywords": [
     "yii2",
     "language",
     "i18n"
   ],
-  "homepage": "https://github.com/Yarisrespect/yii2-i18n.git",
+  "homepage": "https://github.com/Anvipal/yii2-i18n.git",
   "type": "yii2-extension",
   "license": "BSD-3-Clause",
   "authors": [
@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "yarisrespect\\i18n\\": ""
+      "anvipal\\i18n\\": ""
     }
   }
 }
