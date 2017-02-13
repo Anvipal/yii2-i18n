@@ -1,7 +1,7 @@
 # yii2-i18n
 This extension is adding all translations into their language files automaticaly.
 
-    php composer.phar require yarisrespect/yii2-i18n "dev-master"
+    php composer.phar require anvipal/yii2-i18n "dev-master"
 
 Just configure your translation compoent like this:
 
