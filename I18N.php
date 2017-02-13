@@ -1,6 +1,6 @@
 <?php
 
-namespace yarisrespect\i18n;
+namespace anvipal\i18n;
 
 use Yii;
 use yii\i18n\PhpMessageSource;
